@@ -1,6 +1,11 @@
-// #include "PapyrusInterface.h"
+#define DLL_EXPORTED __declspec(dllimport)
+
+#include "MySkseLibraryExample.h"
+
+#define DLL_EXPORTED __declspec(dllimport)
 
 void InitializeLog() {
+    // MySkse
 	auto path = logger::log_directory();
 	*path /= fmt::format("{}.log", SKSE::PluginDeclaration::GetSingleton()->GetName());
 	auto sink = std::make_shared<spdlog::sinks::basic_file_sink_mt>(path->string(), true);
@@ -19,7 +24,11 @@ SKSEPluginLoad(const SKSE::LoadInterface* skse) {
     SKSE::GetMessagingInterface()->RegisterListener([](SKSE::MessagingInterface::Message* event){
         if (event->type == SKSE::MessagingInterface::kDataLoaded) {
             logger::info("Hello from CLIENT example hoping to use the Skse Library API");
-            // SKSE::GetPapyrusInterface()->Register(PapyrusInterface::BIND);
+            auto& thingy = MySkseLibraryExample::GetDemoSingleton();
+            thingy.Add("Hello 2");
+            thingy.Add("World 2");
+            logger::info("The count is now: {}", thingy.GetCount());
+            thingy.LogAll();
         }
     });
     return true;
