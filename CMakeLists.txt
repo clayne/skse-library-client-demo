@@ -17,6 +17,7 @@ target_precompile_headers(${PROJECT_NAME} PUBLIC src/PCH.h)
 
 # set(CMAKE_BUILD_TYPE "Debug")
 target_link_libraries(${PROJECT_NAME} PRIVATE MySkseLibraryExample::MySkseLibraryExample)
+# set_property(TARGET MySkseLibraryExample::MySkseLibraryExample PROPERTY IMPORTED_LOCATION "C:/Users/mrowr/Dropbox/Skyrim/Purrrect Modlist/Mods/Example - SKSE Library Client/build/debug-msvc/vcpkg_installed/x64-windows-static-md/bin/MySkseLibraryExample.dll")
 
 add_custom_command(
 	TARGET "${PROJECT_NAME}"

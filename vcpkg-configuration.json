@@ -15,7 +15,7 @@
         {
             "kind": "git",
             "repository": "https://gitlab.com/mrowrpurr/vcpkg-repo",
-            "baseline": "7d4b6c014316bc575019d764a52ac9bc7dcb33d4",
+            "baseline": "8eb3760b4c0dcf658fc6487291c264b125cc6f20",
             "packages": [
                 "myskselibraryexample"
             ]
